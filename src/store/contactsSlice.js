@@ -19,19 +19,18 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
-        console.log(state.items);
       })
       .addCase(fetchContacts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(addContact.pending, (state, action) => {
-        state.items.push(action.payload);
+      .addCase(addContact.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
         state.error = null;
-        state.isLoading = false;
+        state.isLoading = false;        
       })
       .addCase(addContact.rejected, (state, action) => {
         state.isLoading = false;

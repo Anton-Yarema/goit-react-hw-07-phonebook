@@ -1,10 +1,8 @@
-
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'store/operations';
 
 import css from './contactForm.module.css';
 import { selectContacts } from 'store/selectors';
-
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -14,7 +12,6 @@ const ContactForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const newContact = {
-     
       name: event.target.elements.name.value,
       phone: event.target.elements.phone.value,
     };
